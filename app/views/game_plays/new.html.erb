@@ -1,0 +1,9 @@
+<h1>Create a user</h1>
+
+<%= form_for @game_play do |f| %>
+    <%= f.collection_select :board_game_id, @board_games, :id, :name, prompt:true  %><br>
+    <%= f.collection_select :user_id, @users, :id, :name, prompt:true  %><br>
+    <%= f.submit %><br>
+<% end %>
+
+<% console %>

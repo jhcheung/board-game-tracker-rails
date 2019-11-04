@@ -1,0 +1,24 @@
+<h1>Create a Board Game from BGG</h1>
+
+<%= form_tag board_games_path method="post" do%>
+    <%= text_field_tag 'board_game[bgg_id]', nil, placeholder: "Enter the BGG ID here"%><br>
+    <%= submit_tag "Create"%><br>
+<% end %>
+
+<%= form_tag board_games_search_path method="post" do%>
+    <%= text_field_tag 'board_game[name]', nil, placeholder: "Search BGG by Name"%><br>
+    <%= submit_tag "Search"%><br>
+<% end %>
+
+<% if @board_game_search %>
+    <% @board_game_search[:items].each do |item|%>
+        <%= item.name %> <%= item.type %> <%= item.year_published %> <%= item.id %>
+        <%= form_tag board_games_path method="post" do %>
+            <%= hidden_field_tag 'board_game[bgg_id]', item.id %>
+            <%= submit_tag "Create from info"%>
+        <% end %>
+    <% end %>
+
+<% end %>
+
+<% console %>

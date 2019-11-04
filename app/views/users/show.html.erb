@@ -1,0 +1,10 @@
+<h1><%= @user.name %></h1>
+
+<h2>Board Games Played</h2>
+<p>
+<% @board_games.uniq.each do |board_game| %>
+    <%= link_to board_game.name, board_game %> : 
+
+    <%= @user.count_of_board_game(board_game)%> 
+<% end %>
+</p>

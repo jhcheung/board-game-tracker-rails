@@ -1,0 +1,5 @@
+<h1>Game Plays</h1>
+
+<% @game_plays.each do |game_play| %>
+    <p><%= game_play.user.name, game_play.board_game.name %></p>
+<% end %>
